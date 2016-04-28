@@ -83,6 +83,35 @@ SerialConnection.prototype.disconnect = function() {
 };
 
 ////////////////////////////////////////////////////////
+
+var zero_offset = 0;
+
+var drill_bit_lut;
+var drill_bit_lut_keys_int;
+
+$.getJSON('inchdrill.json', function(data) {         
+  drill_bit_lut = {};
+  drill_bit_lut_keys_int = [];
+  $.each( data, function( key, val ) {
+    drill_bit_lut[val.reading] = val.name;
+    drill_bit_lut_keys_int.push(parseInt(val.reading));
+  });
+});
+
+var getClosestValue = function(counts,goal){
+  var closest = counts.reduce(function (prev, curr) {
+    return (Math.abs(curr - goal) < Math.abs(prev - goal) ? curr : prev);
+  });
+  return closest;
+}
+
+$("#zero-button").click(function(){
+  zero_offset = - current_reading;
+  console.log(zero_offset);
+});
+
+
+
 ////////////////////////////////////////////////////////
 
 $( document ).ready(function() {
@@ -91,8 +120,6 @@ $( document ).ready(function() {
       buildPortPicker(devices,caliper_conn, "port-picker-caliper",  {bitrate: 115200});
       buildPortPicker(devices,robot_conn, "port-picker-robot",  {bitrate: 38400});
     });   
-
-
 });
 
 var caliper_conn = new SerialConnection();
@@ -101,20 +128,20 @@ var robot_conn = new SerialConnection();
 var current_reading;
 
 caliper_conn.onReadLine.addListener(function(line) {
-  console.log('read line: ' + line);
-  current_reading = parseInt(line) / 100.0; 
-  $('#caliper-reading').text(current_reading);
+  current_reading = parseInt(line) + zero_offset; 
+  $('#caliper-reading').text(current_reading / 100.0);
   $('#caliper-reading').effect("highlight", {}, 100);
+
+  var closestSize = getClosestValue(drill_bit_lut_keys_int, current_reading);
+  var closestName = drill_bit_lut[closestSize];
+  
+  $('#current-drill-bit-size').text(closestName);
   
 });
 
+//////////////////////////////////////////////////////
 
-var getClosestValue = function(counts,goal){
-  var closest = counts.reduce(function (prev, curr) {
-    return (Math.abs(curr - goal) < Math.abs(prev - goal) ? curr : prev);
-  });
-  return closest;
-}
+
 
 /*
 var connection = new SerialConnection();

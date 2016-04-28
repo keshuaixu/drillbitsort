@@ -1,0 +1,678 @@
+[
+  {
+    "reading": 34,
+    "name": 80
+  },
+  {
+    "reading": 37,
+    "name": 79
+  },
+  {
+    "reading": 40,
+    "name": "1/64"
+  },
+  {
+    "reading": 41,
+    "name": 78
+  },
+  {
+    "reading": 46,
+    "name": 77
+  },
+  {
+    "reading": 51,
+    "name": 76
+  },
+  {
+    "reading": 53,
+    "name": 75
+  },
+  {
+    "reading": 57,
+    "name": 74
+  },
+  {
+    "reading": 61,
+    "name": 73
+  },
+  {
+    "reading": 64,
+    "name": 72
+  },
+  {
+    "reading": 66,
+    "name": 71
+  },
+  {
+    "reading": 71,
+    "name": 70
+  },
+  {
+    "reading": 74,
+    "name": 69
+  },
+  {
+    "reading": 79,
+    "name": 68
+  },
+  {
+    "reading": 79,
+    "name": "1/32"
+  },
+  {
+    "reading": 81,
+    "name": 67
+  },
+  {
+    "reading": 84,
+    "name": 66
+  },
+  {
+    "reading": 89,
+    "name": 65
+  },
+  {
+    "reading": 91,
+    "name": 64
+  },
+  {
+    "reading": 94,
+    "name": 63
+  },
+  {
+    "reading": 97,
+    "name": 62
+  },
+  {
+    "reading": 99,
+    "name": 61
+  },
+  {
+    "reading": 102,
+    "name": 60
+  },
+  {
+    "reading": 104,
+    "name": 59
+  },
+  {
+    "reading": 107,
+    "name": 58
+  },
+  {
+    "reading": 109,
+    "name": 57
+  },
+  {
+    "reading": 118,
+    "name": 56
+  },
+  {
+    "reading": 119,
+    "name": "3/64"
+  },
+  {
+    "reading": 132,
+    "name": 55
+  },
+  {
+    "reading": 140,
+    "name": 54
+  },
+  {
+    "reading": 151,
+    "name": 53
+  },
+  {
+    "reading": 159,
+    "name": "1/16"
+  },
+  {
+    "reading": 161,
+    "name": 52
+  },
+  {
+    "reading": 170,
+    "name": 51
+  },
+  {
+    "reading": 178,
+    "name": 50
+  },
+  {
+    "reading": 185,
+    "name": 49
+  },
+  {
+    "reading": 193,
+    "name": 48
+  },
+  {
+    "reading": 198,
+    "name": "5/64"
+  },
+  {
+    "reading": 199,
+    "name": 47
+  },
+  {
+    "reading": 206,
+    "name": 46
+  },
+  {
+    "reading": 208,
+    "name": 45
+  },
+  {
+    "reading": 218,
+    "name": 44
+  },
+  {
+    "reading": 226,
+    "name": 43
+  },
+  {
+    "reading": 237,
+    "name": 42
+  },
+  {
+    "reading": 238,
+    "name": "3/32"
+  },
+  {
+    "reading": 244,
+    "name": 41
+  },
+  {
+    "reading": 249,
+    "name": 40
+  },
+  {
+    "reading": 253,
+    "name": 39
+  },
+  {
+    "reading": 258,
+    "name": 38
+  },
+  {
+    "reading": 264,
+    "name": 37
+  },
+  {
+    "reading": 271,
+    "name": 36
+  },
+  {
+    "reading": 278,
+    "name": "7/64"
+  },
+  {
+    "reading": 279,
+    "name": 35
+  },
+  {
+    "reading": 282,
+    "name": 34
+  },
+  {
+    "reading": 287,
+    "name": 33
+  },
+  {
+    "reading": 295,
+    "name": 32
+  },
+  {
+    "reading": 305,
+    "name": 31
+  },
+  {
+    "reading": 318,
+    "name": "1/8"
+  },
+  {
+    "reading": 326,
+    "name": 30
+  },
+  {
+    "reading": 345,
+    "name": 29
+  },
+  {
+    "reading": 357,
+    "name": 28
+  },
+  {
+    "reading": 357,
+    "name": "9/64"
+  },
+  {
+    "reading": 366,
+    "name": 27
+  },
+  {
+    "reading": 373,
+    "name": 26
+  },
+  {
+    "reading": 380,
+    "name": 25
+  },
+  {
+    "reading": 386,
+    "name": 24
+  },
+  {
+    "reading": 391,
+    "name": 23
+  },
+  {
+    "reading": 397,
+    "name": "5/32"
+  },
+  {
+    "reading": 399,
+    "name": 22
+  },
+  {
+    "reading": 404,
+    "name": 21
+  },
+  {
+    "reading": 409,
+    "name": 20
+  },
+  {
+    "reading": 422,
+    "name": 19
+  },
+  {
+    "reading": 431,
+    "name": 18
+  },
+  {
+    "reading": 437,
+    "name": "11/64"
+  },
+  {
+    "reading": 439,
+    "name": 17
+  },
+  {
+    "reading": 450,
+    "name": 16
+  },
+  {
+    "reading": 457,
+    "name": 15
+  },
+  {
+    "reading": 462,
+    "name": 14
+  },
+  {
+    "reading": 470,
+    "name": 13
+  },
+  {
+    "reading": 476,
+    "name": "3/16"
+  },
+  {
+    "reading": 480,
+    "name": 12
+  },
+  {
+    "reading": 485,
+    "name": 11
+  },
+  {
+    "reading": 491,
+    "name": 10
+  },
+  {
+    "reading": 498,
+    "name": 9
+  },
+  {
+    "reading": 505,
+    "name": 8
+  },
+  {
+    "reading": 511,
+    "name": 7
+  },
+  {
+    "reading": 516,
+    "name": "13/64"
+  },
+  {
+    "reading": 518,
+    "name": 6
+  },
+  {
+    "reading": 522,
+    "name": 5
+  },
+  {
+    "reading": 531,
+    "name": 4
+  },
+  {
+    "reading": 541,
+    "name": 3
+  },
+  {
+    "reading": 556,
+    "name": "7/32"
+  },
+  {
+    "reading": 561,
+    "name": 2
+  },
+  {
+    "reading": 579,
+    "name": 1
+  },
+  {
+    "reading": 594,
+    "name": "A"
+  },
+  {
+    "reading": 595,
+    "name": "15/64"
+  },
+  {
+    "reading": 605,
+    "name": "B"
+  },
+  {
+    "reading": 615,
+    "name": "C"
+  },
+  {
+    "reading": 625,
+    "name": "D"
+  },
+  {
+    "reading": 635,
+    "name": "1/4(E)"
+  },
+  {
+    "reading": 653,
+    "name": "F"
+  },
+  {
+    "reading": 663,
+    "name": "G"
+  },
+  {
+    "reading": 675,
+    "name": "17/64"
+  },
+  {
+    "reading": 676,
+    "name": "H"
+  },
+  {
+    "reading": 691,
+    "name": "I"
+  },
+  {
+    "reading": 704,
+    "name": "J"
+  },
+  {
+    "reading": 714,
+    "name": "K"
+  },
+  {
+    "reading": 714,
+    "name": "9/32"
+  },
+  {
+    "reading": 737,
+    "name": "L"
+  },
+  {
+    "reading": 749,
+    "name": "M"
+  },
+  {
+    "reading": 754,
+    "name": "19/64"
+  },
+  {
+    "reading": 767,
+    "name": "N"
+  },
+  {
+    "reading": 794,
+    "name": "5/16"
+  },
+  {
+    "reading": 803,
+    "name": "O"
+  },
+  {
+    "reading": 820,
+    "name": "P"
+  },
+  {
+    "reading": 833,
+    "name": "21/64"
+  },
+  {
+    "reading": 843,
+    "name": "Q"
+  },
+  {
+    "reading": 861,
+    "name": "R"
+  },
+  {
+    "reading": 873,
+    "name": "11/32"
+  },
+  {
+    "reading": 884,
+    "name": "S"
+  },
+  {
+    "reading": 909,
+    "name": "T"
+  },
+  {
+    "reading": 913,
+    "name": "23/64"
+  },
+  {
+    "reading": 935,
+    "name": "U"
+  },
+  {
+    "reading": 953,
+    "name": "3/8"
+  },
+  {
+    "reading": 958,
+    "name": "V"
+  },
+  {
+    "reading": 980,
+    "name": "W"
+  },
+  {
+    "reading": 992,
+    "name": "25/64"
+  },
+  {
+    "reading": 1008,
+    "name": "X"
+  },
+  {
+    "reading": 1026,
+    "name": "Y"
+  },
+  {
+    "reading": 1032,
+    "name": "13/32"
+  },
+  {
+    "reading": 1049,
+    "name": "Z"
+  },
+  {
+    "reading": 1072,
+    "name": "27/64"
+  },
+  {
+    "reading": 1111,
+    "name": "7/16"
+  },
+  {
+    "reading": 1151,
+    "name": "29/64"
+  },
+  {
+    "reading": 1191,
+    "name": "15/32"
+  },
+  {
+    "reading": 1230,
+    "name": "31/64"
+  },
+  {
+    "reading": 1270,
+    "name": "1/2"
+  },
+  {
+    "reading": 1310,
+    "name": "33/64"
+  },
+  {
+    "reading": 1349,
+    "name": "17/32"
+  },
+  {
+    "reading": 1389,
+    "name": "35/64"
+  },
+  {
+    "reading": 1429,
+    "name": "9/16"
+  },
+  {
+    "reading": 1468,
+    "name": "37/64"
+  },
+  {
+    "reading": 1508,
+    "name": "19/32"
+  },
+  {
+    "reading": 1548,
+    "name": "39/64"
+  },
+  {
+    "reading": 1588,
+    "name": "5/8"
+  },
+  {
+    "reading": 1627,
+    "name": "41/64"
+  },
+  {
+    "reading": 1667,
+    "name": "21/32"
+  },
+  {
+    "reading": 1707,
+    "name": "43/64"
+  },
+  {
+    "reading": 1746,
+    "name": "11/16"
+  },
+  {
+    "reading": 1786,
+    "name": "45/64"
+  },
+  {
+    "reading": 1826,
+    "name": "23/32"
+  },
+  {
+    "reading": 1865,
+    "name": "47/64"
+  },
+  {
+    "reading": 1905,
+    "name": "3/4"
+  },
+  {
+    "reading": 1945,
+    "name": "49/64"
+  },
+  {
+    "reading": 1985,
+    "name": "25/32"
+  },
+  {
+    "reading": 2024,
+    "name": "51/64"
+  },
+  {
+    "reading": 2064,
+    "name": "13/16"
+  },
+  {
+    "reading": 2103,
+    "name": "53/64"
+  },
+  {
+    "reading": 2143,
+    "name": "27/32"
+  },
+  {
+    "reading": 2183,
+    "name": "55/64"
+  },
+  {
+    "reading": 2223,
+    "name": "7/8"
+  },
+  {
+    "reading": 2262,
+    "name": "57/64"
+  },
+  {
+    "reading": 2302,
+    "name": "29/32"
+  },
+  {
+    "reading": 2342,
+    "name": "59/64"
+  },
+  {
+    "reading": 2381,
+    "name": "15/16"
+  },
+  {
+    "reading": 2421,
+    "name": "61/64"
+  },
+  {
+    "reading": 2461,
+    "name": "31/32"
+  },
+  {
+    "reading": 2500,
+    "name": "63/64"
+  },
+  {
+    "reading": 2540,
+    "name": 1
+  }
+]
