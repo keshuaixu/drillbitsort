@@ -106,7 +106,7 @@ var getClosestValue = function(counts,goal){
 }
 
 $("#zero-button").click(function(){
-  zero_offset = - current_reading;
+  zero_offset = parseInt($('#zero-input').val()*100) - current_reading;
   console.log(zero_offset);
 });
 

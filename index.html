@@ -35,8 +35,14 @@
 		<div class="col-md-6">
 			<h2> Caliper </h2>	
 			<div class="btn-toolbar" role="group" id="port-picker-caliper">
-
 			</div>
+			<br>
+			<div class="input-group col-xs-3">
+			  <input type="text" class="form-control" placeholder="10.0" value="10.0" id="zero-input">
+			  <span class="input-group-btn">
+				<button class="btn btn-default" type="button" id="zero-button">Zero</button>
+			  </span>
+			</div><!-- /input-group -->
 		</div>
 		<div class="col-md-6">
 			<h2> Robot </h2>
@@ -46,10 +52,29 @@
 	</div>
 	<div class="row">
 		<div class="col-md-6">
-			<h3> Current Reading <button type="button" class="btn btn-secondary" id="zero-button">Zero</button></h3>		
-			<p id="caliper-reading" class="bignumber"></p>
-			<h3> Drill Bit Size </h3>		
-			<p id="current-drill-bit-size" class="bignumber"></p>			
+			<div class="row">
+		<div class="col-md-6">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+				<h3 class="panel-title">Current Reading</h3>
+			  </div>
+			  <div class="panel-body">
+				<p id="caliper-reading" class="bignumber"></p>
+			  </div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+				<h3 class="panel-title">Drill Bit Size</h3>
+			  </div>
+			  <div class="panel-body">
+				<p id="current-drill-bit-size" class="bignumber"></p>
+			  </div>
+			</div>
+		</div>
+	</div>
+	
 		</div>
 		<div class="col-md-6">
 			<h2>
