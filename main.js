@@ -126,6 +126,7 @@ var caliper_conn = new SerialConnection();
 var robot_conn = new SerialConnection();
 
 var current_reading;
+var current_drill_bit_size;
 
 caliper_conn.onReadLine.addListener(function(line) {
   current_reading = parseInt(line) + zero_offset; 
@@ -134,6 +135,7 @@ caliper_conn.onReadLine.addListener(function(line) {
 
   var closestSize = getClosestValue(drill_bit_lut_keys_int, current_reading);
   var closestName = drill_bit_lut[closestSize];
+  current_drill_bit_size = closestName
   
   $('#current-drill-bit-size').text(closestName);
   
@@ -141,7 +143,29 @@ caliper_conn.onReadLine.addListener(function(line) {
 
 //////////////////////////////////////////////////////
 
+var cups = {};
+var cupCount = 0;
 
+var updateCupTable = function(size){
+  if (size in cups) {
+    // do nothing
+  } else {
+    var table = document.getElementById("cup-map");
+    var myrow = table.insertRow(-1);
+    cupCount += 1;
+    myrow.insertCell(-1).innerHTML = cupCount;
+    myrow.insertCell(-1).innerHTML = size;
+    cups[size] = [cupCount, $('#cup-map tr:last')];
+  }
+
+  cups[size][1].effect("highlight", {}, 3000);
+}
+
+var capture = function(){
+  updateCupTable(current_drill_bit_size);
+}
+
+///////////////////////////////////////////////////////
 
 /*
 var connection = new SerialConnection();
