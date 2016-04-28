@@ -32,6 +32,7 @@ var SerialConnection = function() {
 };
 
 SerialConnection.prototype.onConnectComplete = function(connectionInfo) {
+  console.log(connectionInfo);
   if (!connectionInfo) {
     log("Connection failed.");
     return;
@@ -63,8 +64,8 @@ SerialConnection.prototype.onReceiveError = function(errorInfo) {
   }
 };
 
-SerialConnection.prototype.connect = function(path) {
-  serial.connect(path, this.onConnectComplete.bind(this))
+SerialConnection.prototype.connect = function(path, options) {
+  serial.connect(path, options, this.onConnectComplete.bind(this))
 };
 
 SerialConnection.prototype.send = function(msg) {
@@ -87,12 +88,33 @@ SerialConnection.prototype.disconnect = function() {
 $( document ).ready(function() {
     console.log( "ready!" );
     chrome.serial.getDevices(function(devices) {
-      buildPortPicker(devices, "port-picker-caliper");
-      buildPortPicker(devices, "port-picker-robot");
+      buildPortPicker(devices,caliper_conn, "port-picker-caliper",  {bitrate: 115200});
+      buildPortPicker(devices,robot_conn, "port-picker-robot",  {bitrate: 38400});
     });   
 
 
 });
+
+var caliper_conn = new SerialConnection();
+var robot_conn = new SerialConnection();
+
+var current_reading;
+
+caliper_conn.onReadLine.addListener(function(line) {
+  console.log('read line: ' + line);
+  current_reading = parseInt(line) / 100.0; 
+  $('#caliper-reading').text(current_reading);
+  $('#caliper-reading').effect("highlight", {}, 100);
+  
+});
+
+
+var getClosestValue = function(counts,goal){
+  var closest = counts.reduce(function (prev, curr) {
+    return (Math.abs(curr - goal) < Math.abs(prev - goal) ? curr : prev);
+  });
+  return closest;
+}
 
 /*
 var connection = new SerialConnection();
@@ -122,28 +144,22 @@ document.querySelector('button').addEventListener('click', function() {
 */
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
-function buildPortPicker(ports, port_picker) {
+function buildPortPicker(ports,conn, port_picker, options) {
   var eligiblePorts = ports
 
   var portPicker = document.getElementById(port_picker);
   eligiblePorts.forEach(function(port) {
-    var portOption = document.createElement('button');
-    portOption.value = portOption.innerText = port.path;
-
-    portOption.onclick = function() {
-      openSelectedPort(port_picker);
+    var portButton = document.createElement('button');
+    portButton.setAttribute('type','button');
+    portButton.setAttribute('class','btn btn-secondary');
+    portButton.value = portButton.innerText = port.path;
+    portButton.onclick = function() {
+      conn.connect(port.path,options)
+      portButton.setAttribute('class','btn btn-success');
     };
 
-    portPicker.appendChild(portOption);
+    portPicker.appendChild(portButton);
   });
 
 
-}
-
-function openSelectedPort(port_picker) {
-  var portPicker = document.getElementById(port_picker);
-  var selectedPort = portPicker.options[portPicker.selectedIndex].value;
-  console.log("opening port " + selectedPort)
-  var result = chrome.serial.connect(selectedPort, onConnect);
-  console.log("opening port " + selectedPort + ":" + result)
 }
