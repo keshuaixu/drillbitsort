@@ -267,7 +267,7 @@ function buildPortPicker(ports,conn, port_picker, options) {
     portButton.onclick = function() {
       conn.connect(port.path,options)
       portButton.setAttribute('class','btn btn-success');
-      $('#{0} button'.format(port_picker)).attr('disabled','disabled');
+//       $('#{0} button'.format(port_picker)).attr('disabled','disabled');
     };
 
     portPicker.appendChild(portButton);
