@@ -425,11 +425,7 @@
   },
   {
     "reading": 714,
-    "name": "K"
-  },
-  {
-    "reading": 714,
-    "name": "9/32"
+    "name": "9/32(K)"
   },
   {
     "reading": 737,
@@ -673,6 +669,6 @@
   },
   {
     "reading": 2540,
-    "name": 1
+    "name": "1 inch"
   }
 ]

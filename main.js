@@ -82,6 +82,18 @@ SerialConnection.prototype.disconnect = function() {
   serial.disconnect(this.connectionId, function() {});
 };
 
+if (!String.prototype.format) {
+  String.prototype.format = function() {
+    var args = arguments;
+    return this.replace(/{(\d+)}/g, function(match, number) { 
+      return typeof args[number] != 'undefined'
+        ? args[number]
+        : match
+      ;
+    });
+  };
+}
+
 ////////////////////////////////////////////////////////
 
 var zero_offset = 0;
@@ -202,11 +214,12 @@ function buildPortPicker(ports,conn, port_picker, options) {
   eligiblePorts.forEach(function(port) {
     var portButton = document.createElement('button');
     portButton.setAttribute('type','button');
-    portButton.setAttribute('class','btn btn-secondary');
+    portButton.setAttribute('class','btn btn-default');
     portButton.value = portButton.innerText = port.path;
     portButton.onclick = function() {
       conn.connect(port.path,options)
       portButton.setAttribute('class','btn btn-success');
+      $('#{0} button'.format(port_picker)).attr('disabled','disabled');
     };
 
     portPicker.appendChild(portButton);
