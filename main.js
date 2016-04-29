@@ -1,4 +1,3 @@
-const DEVICE_PATH = '/dev/ttyACM0';
 const serial = chrome.serial;
 
 /* Interprets an ArrayBuffer as UTF-8 encoded string data. */
@@ -131,6 +130,7 @@ $( document ).ready(function() {
     chrome.serial.getDevices(function(devices) {
       buildPortPicker(devices,caliper_conn, "port-picker-caliper",  {bitrate: 115200});
       buildPortPicker(devices,robot_conn, "port-picker-robot",  {bitrate: 38400});
+//       $('#cup-map').stickyTableHeaders();
     });   
 });
 
@@ -138,12 +138,15 @@ var caliper_conn = new SerialConnection();
 var robot_conn = new SerialConnection();
 
 var current_reading;
+var d_reading;
 var current_drill_bit_size;
 
 caliper_conn.onReadLine.addListener(function(line) {
+  var last_reading = current_reading;
   current_reading = parseInt(line) + zero_offset; 
-  $('#caliper-reading').text(current_reading / 100.0);
-  $('#caliper-reading').effect("highlight", {}, 100);
+  d_reading = current_reading - last_reading;
+  $('#caliper-reading').text((current_reading / 100.0).toFixed(2));
+  // $('#caliper-reading').effect("highlight", {}, 100);
 
   var closestSize = getClosestValue(drill_bit_lut_keys_int, current_reading);
   var closestName = drill_bit_lut[closestSize];
@@ -170,15 +173,60 @@ var updateCupTable = function(size){
     cups[size] = [cupCount, $('#cup-map tr:last')];
   }
 
-  cups[size][1].effect("highlight", {}, 3000);
+  cups[size][1].effect("highlight", {}, 6000);
+  return cups[size][0];
 }
 
 var capture = function(){
-  updateCupTable(current_drill_bit_size);
+  $('#current-drill-bit-size').effect("highlight", {}, 400);
+  return updateCupTable(current_drill_bit_size);
 }
+
+$("#clear-button").click(function(){
+  cups = {};
+  cupCount = 0;
+  $("#cup-map").find("tr:gt(0)").remove();
+});
+
 
 ///////////////////////////////////////////////////////
 
+robot_conn.onReadLine.addListener(function(line) {
+  console.log(line);
+  if (line.trim() === "%m"){
+    
+    waitfor(function(){return Math.abs(d_reading) > 2}, false, 100, 0, 20, function(){
+          var cup = capture();
+          var command = "%{0}\n".format(pad(cup,2));
+          robot_conn.send(command);      
+    });
+
+  }
+});
+
+
+function pad(n, width, z) {
+  z = z || '0';
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
+
+function waitfor(test, expectedValue, msec, count, maxcount, callback) {
+    // Check if condition met. If not, re-check later (msec).
+    while (test() !== expectedValue) {
+        count++;
+        if (count > maxcount){
+          break;
+        }
+        setTimeout(function() {
+            waitfor(test, expectedValue, msec, count, maxcount, callback);
+        }, msec);
+        return;
+    }
+    callback();
+}
+
+////////////////////////////////////////////////////////
 /*
 var connection = new SerialConnection();
 
