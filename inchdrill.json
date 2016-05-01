@@ -1,5 +1,9 @@
 [
   {
+    "reading": 0,
+    "name": "zero"
+  },
+  {
     "reading": 34,
     "name": 80
   },

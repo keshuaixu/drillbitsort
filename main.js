@@ -117,7 +117,7 @@ var getClosestValue = function(counts,goal){
 }
 
 $("#zero-button").click(function(){
-  zero_offset = parseInt($('#zero-input').val()*100) - current_reading;
+  zero_offset += parseInt($('#zero-input').val()*100) - current_reading;
   console.log(zero_offset);
 });
 
@@ -179,7 +179,11 @@ var updateCupTable = function(size){
 
 var capture = function(){
   $('#current-drill-bit-size').effect("highlight", {}, 400);
-  return updateCupTable(current_drill_bit_size);
+  if (current_drill_bit_size === "zero"){
+    return 0;
+  } else {
+    return updateCupTable(current_drill_bit_size);
+  }
 }
 
 $("#clear-button").click(function(){
@@ -192,7 +196,7 @@ $("#clear-button").click(function(){
 ///////////////////////////////////////////////////////
 
 robot_conn.onReadLine.addListener(function(line) {
-  console.log(line);
+//   console.log(line);
   if (line.trim() === "%m"){
     
     waitfor(function(){return Math.abs(d_reading) > 2}, false, 100, 0, 20, function(){
