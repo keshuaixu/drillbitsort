@@ -198,13 +198,9 @@ $("#clear-button").click(function(){
 robot_conn.onReadLine.addListener(function(line) {
 //   console.log(line);
   if (line.trim() === "%m"){
-    
-    waitfor(function(){return Math.abs(d_reading) > 2}, false, 100, 0, 20, function(){
-          var cup = capture();
-          var command = "%{0}\n".format(pad(cup,2));
-          robot_conn.send(command);      
-    });
-
+    var cup = capture();
+    var command = "%{0}\n".format(pad(cup,2));
+    robot_conn.send(command);       
   }
 });
 
