@@ -197,9 +197,9 @@ $("#clear-button").click(function(){
 
 robot_conn.onReadLine.addListener(function(line) {
 //   console.log(line);
-  if (line.trim() === "%m"){
+  if (line.trim() === "meas"){
     var cup = capture();
-    var command = "%{0}\n".format(pad(cup,2));
+    var command = "{0}\t".format(cup);
     robot_conn.send(command);       
   }
 });
@@ -275,3 +275,8 @@ function buildPortPicker(ports,conn, port_picker, options) {
 
 
 }
+
+chrome.runtime.onSuspend.addListener(function() {
+  caliper_conn.disconnect();
+  robot_conn.disconnect();  
+});
