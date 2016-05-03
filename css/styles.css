@@ -1,10 +1,14 @@
 .bignumber {
 	font-family: monospace;
 	text-align: center;
-	font-size: 400%;
+	font-size: 800%;
 }
 
 html, body {
     overflow-y: visible;
 }
 
+#cup-map {
+	font-family: monospace;
+	font-size: 200%;	
+}

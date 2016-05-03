@@ -48,7 +48,8 @@ SerialConnection.prototype.onReceive = function(receiveInfo) {
   }
 
   this.lineBuffer += ab2str(receiveInfo.data);
-
+//   console.log( new Uint8Array(receiveInfo.data));
+//   console.log(this.lineBuffer);
   var index;
   while ((index = this.lineBuffer.indexOf('\n')) >= 0) {
     var line = this.lineBuffer.substr(0, index + 1);
@@ -117,8 +118,10 @@ var getClosestValue = function(counts,goal){
 }
 
 $("#zero-button").click(function(){
-  zero_offset += parseInt($('#zero-input').val()*100) - current_reading;
+  zero_offset = parseInt($('#zero-input').val()*100) - raw_reading;
   console.log(zero_offset);
+  current_reading = raw_reading + zero_offset;
+  $('#caliper-reading').text((current_reading / 100.0).toFixed(2));  
 });
 
 
@@ -141,9 +144,14 @@ var current_reading;
 var d_reading;
 var current_drill_bit_size;
 
+var raw_reading;
+
 caliper_conn.onReadLine.addListener(function(line) {
   var last_reading = current_reading;
-  current_reading = parseInt(line) + zero_offset; 
+  raw_reading = parseInt(line); 
+//   console.log(current_reading)
+//   current_reading = Math.round(current_reading*9.53/9.14); //magical scaling for our caliper
+  current_reading = raw_reading + zero_offset;
   d_reading = current_reading - last_reading;
   $('#caliper-reading').text((current_reading / 100.0).toFixed(2));
   // $('#caliper-reading').effect("highlight", {}, 100);
@@ -173,7 +181,7 @@ var updateCupTable = function(size){
     cups[size] = [cupCount, $('#cup-map tr:last')];
   }
 
-  cups[size][1].effect("highlight", {}, 6000);
+  cups[size][1].effect("highlight", {}, 12000);
   return cups[size][0];
 }
 
@@ -199,8 +207,11 @@ robot_conn.onReadLine.addListener(function(line) {
 //   console.log(line);
   if (line.trim() === "meas"){
     var cup = capture();
-    var command = "{0}\t".format(cup);
-    robot_conn.send(command);       
+    var command = "{0}\n".format(cup);
+    robot_conn.send(command);     
+    console.log("returned " + command);  
+  } else {
+    console.log("unknown message received" + line);
   }
 });
 
